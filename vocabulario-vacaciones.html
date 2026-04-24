@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vocabulario Vacaciones y Viajes</title>
+<style>
+    /* OPCIÓN 3: HTML responsive con unidades relativas, flexbox y media queries */
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow-x: hidden;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        padding: 10px;
+        background-color: #f4f4f4;
+    }
+
+    .vocab-table {
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto 30px auto;
+        border-collapse: collapse;
+        background-color: white;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .vocab-table th, .vocab-table td {
+        padding: clamp(8px, 2vw, 15px);
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        vertical-align: middle;
+        font-size: clamp(12px, 2vw, 15px);
+    }
+
+    .vocab-table th {
+        background-color: #2c3e50;
+        color: white;
+        text-transform: uppercase;
+        font-size: clamp(11px, 1.5vw, 14px);
+        letter-spacing: 1px;
+    }
+
+    .vocab-table tr:nth-child(even) { background-color: #f9f9f9; }
+    .vocab-table tr:hover { background-color: #f1f1f1; }
+
+    .col-audio { text-align: center; width: 60px; }
+    .col-spanish { color: #555; }
+
+    .category-header {
+        background-color: #f0f0f0;
+        color: #333;
+        text-align: center;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-top: 1px solid #ccc;
+        padding: 8px;
+        font-size: clamp(10px, 1.5vw, 12px);
+    }
+
+    .play-btn {
+        background-color: #3498db;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: clamp(32px, 5vw, 40px);
+        height: clamp(32px, 5vw, 40px);
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.1s, background-color 0.2s;
+        flex-shrink: 0;
+    }
+
+    .play-btn:hover { background-color: #2980b9; transform: scale(1.1); }
+    .play-btn:active { transform: scale(0.95); }
+    .play-btn svg { width: 14px; height: 14px; fill: white; margin-left: 2px; }
+
+    /* Media query para móvil: ocultar columna español si espacio muy reducido */
+    @media (max-width: 400px) {
+        .col-spanish { display: none; }
+        .vocab-table th:last-child { display: none; }
+    }
+</style>
+</head>
+<body>
+
+<table class="vocab-table">
+    <thead>
+        <tr>
+            <th>ENGLISH</th>
+            <th class="col-audio">AUDIO</th>
+            <th>ESPAÑOL</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td colspan="3" class="category-header">SIGHTSEEING HOLIDAY (VACACIONES DE TURISMO)</td></tr>
+        <tr><td>Abroad</td><td class="col-audio"><audio id="aud-abroad" src="abroad.mp3"></audio><button class="play-btn" onclick="playAudio('aud-abroad')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Al extranjero</td></tr>
+        <tr><td>Go/do sightseeing</td><td class="col-audio"><audio id="aud-sightseeing" src="sightseeing.mp3"></audio><button class="play-btn" onclick="playAudio('aud-sightseeing')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Hacer turismo urbano</td></tr>
+        <tr><td>Have a look around</td><td class="col-audio"><audio id="aud-lookaround" src="lookaround.mp3"></audio><button class="play-btn" onclick="playAudio('aud-lookaround')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Echar un vistazo alrededor</td></tr>
+        <tr><td>Take pictures</td><td class="col-audio"><audio id="aud-takepictures" src="takepictures.mp3"></audio><button class="play-btn" onclick="playAudio('aud-takepictures')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Tomar fotografías</td></tr>
+        <tr><td>Spend money</td><td class="col-audio"><audio id="aud-spendmoney" src="spendmoney.mp3"></audio><button class="play-btn" onclick="playAudio('aud-spendmoney')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Gastar dinero</td></tr>
+        <tr><td>Get lost</td><td class="col-audio"><audio id="aud-getlost" src="getlost.mp3"></audio><button class="play-btn" onclick="playAudio('aud-getlost')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Perderse</td></tr>
+        <tr><td>Have a great time</td><td class="col-audio"><audio id="aud-greattime" src="greattime.mp3"></audio><button class="play-btn" onclick="playAudio('aud-greattime')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Pasárselo bien</td></tr>
+        <tr><td>Go out</td><td class="col-audio"><audio id="aud-goout" src="goout.mp3"></audio><button class="play-btn" onclick="playAudio('aud-goout')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Salir</td></tr>
+        <tr><td>Palace</td><td class="col-audio"><audio id="aud-palace" src="palace.mp3"></audio><button class="play-btn" onclick="playAudio('aud-palace')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Palacio</td></tr>
+        <tr><td>Market</td><td class="col-audio"><audio id="aud-market" src="market.mp3"></audio><button class="play-btn" onclick="playAudio('aud-market')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Mercado</td></tr>
+        <tr><td>Temple</td><td class="col-audio"><audio id="aud-temple" src="temple.mp3"></audio><button class="play-btn" onclick="playAudio('aud-temple')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Templo</td></tr>
+        <tr><td>Statue</td><td class="col-audio"><audio id="aud-statue" src="statue.mp3"></audio><button class="play-btn" onclick="playAudio('aud-statue')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Estatua</td></tr>
+        <tr><td>Castle</td><td class="col-audio"><audio id="aud-castle" src="castle2.mp3"></audio><button class="play-btn" onclick="playAudio('aud-castle')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Castillo</td></tr>
+        <tr><td>Cathedral</td><td class="col-audio"><audio id="aud-cathedral" src="cathedral.mp3"></audio><button class="play-btn" onclick="playAudio('aud-cathedral')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Catedral</td></tr>
+        <tr><td>Monuments</td><td class="col-audio"><audio id="aud-monuments" src="monuments.mp3"></audio><button class="play-btn" onclick="playAudio('aud-monuments')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Monumentos</td></tr>
+        <tr><td>Nightlife</td><td class="col-audio"><audio id="aud-nightlife" src="nightlife.mp3"></audio><button class="play-btn" onclick="playAudio('aud-nightlife')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Vida nocturna</td></tr>
+        <tr><td>Rent an apartment</td><td class="col-audio"><audio id="aud-rentapt" src="rentapt.mp3"></audio><button class="play-btn" onclick="playAudio('aud-rentapt')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Alquilar un apartamento</td></tr>
+
+        <tr><td colspan="3" class="category-header">HOLIDAYS BY THE SEA (VACACIONES EN LA PLAYA)</td></tr>
+        <tr><td>Go camping</td><td class="col-audio"><audio id="aud-gocamping" src="gocamping.mp3"></audio><button class="play-btn" onclick="playAudio('aud-gocamping')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Ir de acampada</td></tr>
+        <tr><td>Seaside resort</td><td class="col-audio"><audio id="aud-seaside" src="seaside.mp3"></audio><button class="play-btn" onclick="playAudio('aud-seaside')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Complejo vacacional (de costa)</td></tr>
+        <tr><td>Go to the beach</td><td class="col-audio"><audio id="aud-tothebeach" src="tothebeach.mp3"></audio><button class="play-btn" onclick="playAudio('aud-tothebeach')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Ir a la playa</td></tr>
+        <tr><td>Sunbathe</td><td class="col-audio"><audio id="aud-sunbathe" src="sunbathe.mp3"></audio><button class="play-btn" onclick="playAudio('aud-sunbathe')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Tomar el sol</td></tr>
+        <tr><td>Yacht</td><td class="col-audio"><audio id="aud-yacht" src="yacht.mp3"></audio><button class="play-btn" onclick="playAudio('aud-yacht')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Yate</td></tr>
+        <tr><td>Sand</td><td class="col-audio"><audio id="aud-sand" src="sand.mp3"></audio><button class="play-btn" onclick="playAudio('aud-sand')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Arena</td></tr>
+        <tr><td>Have a swim</td><td class="col-audio"><audio id="aud-haveswim" src="haveswim.mp3"></audio><button class="play-btn" onclick="playAudio('aud-haveswim')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Darse un baño</td></tr>
+        <tr><td>Get a suntan</td><td class="col-audio"><audio id="aud-suntan" src="suntan.mp3"></audio><button class="play-btn" onclick="playAudio('aud-suntan')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Ponerse moreno/a</td></tr>
+        <tr><td>Sun cream</td><td class="col-audio"><audio id="aud-suncream" src="suncream.mp3"></audio><button class="play-btn" onclick="playAudio('aud-suncream')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Crema solar</td></tr>
+        <tr><td>Get sunburn</td><td class="col-audio"><audio id="aud-sunburn" src="sunburn.mp3"></audio><button class="play-btn" onclick="playAudio('aud-sunburn')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Quemarse (por el sol)</td></tr>
+
+        <tr><td colspan="3" class="category-header">HOTELS AND RESTAURANTS</td></tr>
+        <tr><td>A single room</td><td class="col-audio"><audio id="aud-singleroom" src="singleroom.mp3"></audio><button class="play-btn" onclick="playAudio('aud-singleroom')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Habitación individual</td></tr>
+        <tr><td>A double room</td><td class="col-audio"><audio id="aud-doubleroom" src="doubleroom.mp3"></audio><button class="play-btn" onclick="playAudio('aud-doubleroom')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Habitación doble</td></tr>
+        <tr><td>A twin room</td><td class="col-audio"><audio id="aud-twinroom" src="twinroom.mp3"></audio><button class="play-btn" onclick="playAudio('aud-twinroom')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Habitación con camas gemelas</td></tr>
+        <tr><td>Full board</td><td class="col-audio"><audio id="aud-fullboard" src="fullboard.mp3"></audio><button class="play-btn" onclick="playAudio('aud-fullboard')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Pensión completa</td></tr>
+        <tr><td>Half board</td><td class="col-audio"><audio id="aud-halfboard" src="halfboard.mp3"></audio><button class="play-btn" onclick="playAudio('aud-halfboard')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Media pensión</td></tr>
+        <tr><td>B&B (bed and breakfast)</td><td class="col-audio"><audio id="aud-b&b" src="b&b.mp3"></audio><button class="play-btn" onclick="playAudio('aud-b&b')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Habitación y desayuno</td></tr>
+        <tr><td>Book (v)</td><td class="col-audio"><audio id="aud-book" src="book.mp3"></audio><button class="play-btn" onclick="playAudio('aud-book')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Reservar</td></tr>
+        <tr><td>In advance</td><td class="col-audio"><audio id="aud-inadvance" src="inadvance.mp3"></audio><button class="play-btn" onclick="playAudio('aud-inadvance')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Con antelación</td></tr>
+        <tr><td>Tip (v)</td><td class="col-audio"><audio id="aud-tip" src="tip.mp3"></audio><button class="play-btn" onclick="playAudio('aud-tip')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Dar propina</td></tr>
+        <tr><td>Waiter / waitress</td><td class="col-audio"><audio id="aud-waiter" src="waiter.mp3"></audio><button class="play-btn" onclick="playAudio('aud-waiter')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Camarero/a</td></tr>
+        <tr><td>Bill</td><td class="col-audio"><audio id="aud-bill" src="bill.mp3"></audio><button class="play-btn" onclick="playAudio('aud-bill')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">La cuenta</td></tr>
+        <tr><td>How do I get to…?</td><td class="col-audio"><audio id="aud-howdoiget" src="howdoiget.mp3"></audio><button class="play-btn" onclick="playAudio('aud-howdoiget')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">¿Cómo puedo llegar a…?</td></tr>
+        <tr><td>There is something wrong with…</td><td class="col-audio"><audio id="aud-somethingwrong" src="somethingwrong.mp3"></audio><button class="play-btn" onclick="playAudio('aud-somethingwrong')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Hay un problema con…</td></tr>
+        <tr><td>Are you ready to order?</td><td class="col-audio"><audio id="aud-readytoorder" src="readytoorder.mp3"></audio><button class="play-btn" onclick="playAudio('aud-readytoorder')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">¿Estáis listos para pedir?</td></tr>
+        <tr><td>I'll have…</td><td class="col-audio"><audio id="aud-illhave" src="illhave.mp3"></audio><button class="play-btn" onclick="playAudio('aud-illhave')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Tomaré…</td></tr>
+        <tr><td>Where is the toilet?</td><td class="col-audio"><audio id="aud-wheretoilet" src="wheretoilet.mp3"></audio><button class="play-btn" onclick="playAudio('aud-wheretoilet')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">¿Dónde está el aseo?</td></tr>
+
+        <tr><td colspan="3" class="category-header">AT THE AIRPORT (EN EL AEROPUERTO)</td></tr>
+        <tr><td>Departures board</td><td class="col-audio"><audio id="aud-departuresboard" src="departuresboard.mp3"></audio><button class="play-btn" onclick="playAudio('aud-departuresboard')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Pantalla de salidas</td></tr>
+        <tr><td>Flight number</td><td class="col-audio"><audio id="aud-flightnumber" src="flightnumber.mp3"></audio><button class="play-btn" onclick="playAudio('aud-flightnumber')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Número de vuelo</td></tr>
+        <tr><td>Departure time</td><td class="col-audio"><audio id="aud-departuretime" src="departuretime.mp3"></audio><button class="play-btn" onclick="playAudio('aud-departuretime')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Hora de salida</td></tr>
+        <tr><td>Check-in desk</td><td class="col-audio"><audio id="aud-checkindesk" src="checkindesk.mp3"></audio><button class="play-btn" onclick="playAudio('aud-checkindesk')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Mostrador de facturación</td></tr>
+        <tr><td>Baggage / luggage</td><td class="col-audio"><audio id="aud-baggage" src="baggage.mp3"></audio><button class="play-btn" onclick="playAudio('aud-baggage')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Equipaje</td></tr>
+        <tr><td>Hand luggage</td><td class="col-audio"><audio id="aud-handluggage" src="handluggage.mp3"></audio><button class="play-btn" onclick="playAudio('aud-handluggage')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Equipaje de mano</td></tr>
+        <tr><td>Boarding card</td><td class="col-audio"><audio id="aud-boardingcard" src="boardingcard.mp3"></audio><button class="play-btn" onclick="playAudio('aud-boardingcard')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Tarjeta de embarque</td></tr>
+        <tr><td>Passport control</td><td class="col-audio"><audio id="aud-passportcontrol" src="passportcontrol.mp3"></audio><button class="play-btn" onclick="playAudio('aud-passportcontrol')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Control de pasaporte</td></tr>
+        <tr><td>Board</td><td class="col-audio"><audio id="aud-board" src="board.mp3"></audio><button class="play-btn" onclick="playAudio('aud-board')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Embarcar</td></tr>
+        <tr><td>Delay</td><td class="col-audio"><audio id="aud-delay" src="delay.mp3"></audio><button class="play-btn" onclick="playAudio('aud-delay')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Retraso</td></tr>
+        <tr><td>Captain / pilot</td><td class="col-audio"><audio id="aud-captain" src="captain.mp3"></audio><button class="play-btn" onclick="playAudio('aud-captain')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Capitán / piloto</td></tr>
+        <tr><td>Cabin crew</td><td class="col-audio"><audio id="aud-cabincrew" src="cabincrew.mp3"></audio><button class="play-btn" onclick="playAudio('aud-cabincrew')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Tripulación de cabina</td></tr>
+        <tr><td>Fasten your seatbelt</td><td class="col-audio"><audio id="aud-fastenseatbelt" src="fastenseatbelt.mp3"></audio><button class="play-btn" onclick="playAudio('aud-fastenseatbelt')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Abrocharse el cinturón</td></tr>
+        <tr><td>Take off</td><td class="col-audio"><audio id="aud-takeoff" src="takeoff.mp3"></audio><button class="play-btn" onclick="playAudio('aud-takeoff')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Despegar</td></tr>
+        <tr><td>Land (v)</td><td class="col-audio"><audio id="aud-land" src="land.mp3"></audio><button class="play-btn" onclick="playAudio('aud-land')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Aterrizar</td></tr>
+        <tr><td>Baggage reclaim</td><td class="col-audio"><audio id="aud-baggagereclaim" src="baggagereclaim.mp3"></audio><button class="play-btn" onclick="playAudio('aud-baggagereclaim')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Recogida de equipaje</td></tr>
+        <tr><td>Hire / Rent a car</td><td class="col-audio"><audio id="aud-rentcar" src="rentcar.mp3"></audio><button class="play-btn" onclick="playAudio('aud-rentcar')"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button></td><td class="col-spanish">Alquilar un coche</td></tr>
+    </tbody>
+</table>
+
+<script>
+    // OPCIÓN 2: postMessage — comunica la altura real al iframe padre (Moodle)
+    function sendHeight() {
+        var height = document.body.scrollHeight;
+        window.parent.postMessage(height, '*');
+    }
+
+    // Enviar altura al cargar y cada vez que cambie el tamaño de ventana
+    window.addEventListener('load', sendHeight);
+    window.addEventListener('resize', sendHeight);
+
+    // También enviar si el contenido cambia (por si acaso)
+    if (window.ResizeObserver) {
+        new ResizeObserver(sendHeight).observe(document.body);
+    }
+
+    // Reproducción de audio
+    function playAudio(id) {
+        var audio = document.getElementById(id);
+        if (!audio) {
+            console.error("No encuentro el audio con id: " + id);
+            return;
+        }
+        document.querySelectorAll('audio').forEach(function(el) {
+            if (el !== audio) { el.pause(); el.currentTime = 0; }
+        });
+        if (audio.paused) {
+            var playPromise = audio.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(function(error) {
+                    console.error("Error al reproducir:", error);
+                });
+            }
+        } else {
+            audio.pause();
+        }
+    }
+</script>
+
+</body>
+</html>
