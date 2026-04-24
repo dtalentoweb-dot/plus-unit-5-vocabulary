@@ -235,6 +235,21 @@
 </div>
 
 <script>
+  // OPCIÓN 2: postMessage — comunica la altura real al iframe padre (Moodle)
+    function sendHeight() {
+        var height = document.body.scrollHeight;
+        window.parent.postMessage(height, '*');
+    }
+
+    // Enviar altura al cargar y cada vez que cambie el tamaño de ventana
+    window.addEventListener('load', sendHeight);
+    window.addEventListener('resize', sendHeight);
+
+    // También enviar si el contenido cambia (por si acaso)
+    if (window.ResizeObserver) {
+        new ResizeObserver(sendHeight).observe(document.body);
+    }
+  
   // Seleccionar todos los botones de reproducción
   const playButtons = document.querySelectorAll('.play-btn');
 
